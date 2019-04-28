@@ -7,7 +7,7 @@ using UnityEngine;
 public class Glider : MonoBehaviour
 {
 
-    bool flying = true;
+    public bool flying = false;
     public Rigidbody rb ;
     // Use this for initialization
     void Start()
