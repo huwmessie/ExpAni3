@@ -5,10 +5,11 @@ using UnityEngine.Animations;
 
 public class SpringAction : MonoBehaviour
 {
+
     Vector3 offset;
     public Transform target;
-    private ParentConstraint pc;
-    bool bindWhenClose = false;
+    public ParentConstraint pc;
+    public bool bindWhenClose = false;
 
     List<GameObject> currentCollisions = new List<GameObject>();
     // Start is called before the first frame update
@@ -25,10 +26,9 @@ public class SpringAction : MonoBehaviour
             offset = transform.position - target.position;
             offset *= 0.65f;
             transform.position = target.position + offset;
-            if (offset.magnitude < 0.02)
+            if (offset.magnitude < 0.07)
             {
-                bindWhenClose = false;
-                pc.constraintActive = true;
+                Bind();
             }
         }
     }
@@ -47,5 +47,10 @@ public class SpringAction : MonoBehaviour
             bindWhenClose = true;
     }
 
-
+    public void Bind()
+    {
+        transform.position = target.position;
+        bindWhenClose = false;
+        pc.constraintActive = true;
+    }
 }

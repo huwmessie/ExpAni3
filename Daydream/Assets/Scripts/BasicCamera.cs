@@ -33,7 +33,12 @@ public class BasicCamera : MonoBehaviour
             //print("target in view");
             //particles.transform.localScale += new Vector3(0, 0, 100f);
             //floor.AddForce(Vector3.down * 50);
-            floor.transform.Translate(-1* dropspeed * Vector3.forward * Time.deltaTime, Space.World);
+            //floor.transform.Translate(-1* dropspeed * Vector3.forward * Time.deltaTime, Space.World);
+            floor.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GameObject[] FallingChairs = GameObject.FindGameObjectsWithTag("Falling Chair");
+            foreach (GameObject obj in FallingChairs)
+                obj.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
         }
         //else print("target not in view");
 

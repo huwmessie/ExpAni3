@@ -9,6 +9,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/Grip",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     }
@@ -62,7 +66,8 @@
       "language_tag": "en_US",
       "/actions/default/in/Pose": "Pose",
       "/actions/default/out/Haptic": "Haptic",
-      "/actions/default/in/Grab": "Grab"
+      "/actions/default/in/Grab": "Grab",
+      "/actions/default/in/Grip": "Grip"
     }
   ]
 }

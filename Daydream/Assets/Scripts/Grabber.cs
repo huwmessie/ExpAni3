@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using Valve.VR;
+
 
 public class Grabber : MonoBehaviour
 {
@@ -11,12 +13,14 @@ public class Grabber : MonoBehaviour
     public SteamVR_ActionSet m_ActionSet;
 
     public SteamVR_Action_Boolean m_BooleanAction;
+    public SteamVR_Action_Boolean n_BooleanAction;
 
     public SteamVR_Input_Sources InputSource;
 
     public GameObject MotionSource;
 
     private Rigidbody rb;
+    
 
     private void Start()
     {
@@ -41,6 +45,10 @@ public class Grabber : MonoBehaviour
                 UnconstrainFromSource(obj);
             }
             currentHoldings = new List<GameObject>();
+        }
+        if (n_BooleanAction.GetStateDown(InputSource))
+        {
+            GetComponent<SpringAction>().Bind();
         }
 
     }
